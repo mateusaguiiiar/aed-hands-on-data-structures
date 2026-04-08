@@ -7,4 +7,15 @@ def binary_search(array: MyArray, target: int) -> int:
 
     Deve retornar o índice do elemento ou -1 caso não encontrado.
     """
-    raise NotImplementedError
+    start = 0
+    end = len(array) - 1
+
+    while start <= end:
+        middle = (start + end) // 2
+        if array[middle] == target:
+            return middle
+        elif array[middle] > target:
+            end = middle - 1
+        else:
+            start = middle + 1
+    return -1
